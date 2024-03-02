@@ -44,25 +44,27 @@
                             <a href=""><i class="fa-regular fa-flag"></i></a>
                         </div>
                     </div>
-                    <a class="btn">Sing in</a>
+                    <a class=" bg-[#797DFC] text-white py-2 px-7 rounded-[46px] ">Sing in</a>
                 </div>
             </div>
         </div>
         <!-- hero section -->
         <div class="container max-w-6xl mx-auto rounded-3xl my-10">
-            <div class="hero flex flex-col gap-6 lg:flex-row justify-around min-h-screen rounded-3xl p-20" style="background-image: url(images/benner.png);">
+            <div class="hero flex flex-col gap-6 lg:flex-row justify-around min-h-screen rounded-3xl p-20"
+                style="background-image: url(images/benner.png);">
                 <div class="  text-neutral-content">
                     <div class="max-w-[520px]">
                         <h1 class="mb-5 font-bold font-mulish text-[30px] lg:text-[64px]">
                             Welcome to the <br>
-                            <span class="font-mulish text-3xl lg:text-[64px]">ReTro</span> 
+                            <span class="font-mulish text-3xl lg:text-[64px] text-[#797DFC]">ReTro</span>
                             Forum
                         </h1>
-                        <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-                            exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <label class="input input-bordered flex items-center gap-8 rounded-3xl">
-                            <input type="text" class="grow" placeholder="Search here anything" />
-                            <a href="" class=" bg-[#797DFC] text-white py-2 px-7 rounded-[46px] ">Search</a>
+                        <p class="mb-5 font-mulish text-xl">Share your favorite opinion and win and wp <br> forum coffee
+                            mug!</p>
+                        <label class="input input-bordered flex items-center gap-8 rounded-3xl max-w-[400px]">
+                            <input type="text" id="search-input" class="grow" placeholder="Search here anything" />
+                            <a href="" id="search-btn"
+                                class=" bg-[#797DFC] text-white py-2 px-7 rounded-[46px] ">Search</a>
                         </label>
                     </div>
                 </div>
@@ -87,11 +89,116 @@
             </div>
         </div>
     </header>
-    <main>
-
+    <main class="container max-w-6xl mx-auto mt-10 p-4">
+        <!-- Let’s Discuss section -->
+        <section>
+            <div class="max-w-[690px] mx-auto text-center mb-12">
+                <h2 class="text-[#12132D] text-4xl font-mulish font-bold mb-6">Let’s Discuss</h2>
+                <p class="text-lg font-mulish">Yes, you can run unit tests and view the results directly within the app.
+                    The integrated testing features allow for a streamlined .</p>
+            </div>
+            <!-- card  -->
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div id="lets-container-cards" class="lg:w-[772px]">
+                    <div
+                        class=" flex flex-col lg:flex-row gap-6  bg-[rgba(121,125,252,0.1)] rounded-3xl shadow-xl p-4 lg:p-8">
+                        <div class="relative w-[95px] lg:w-[100px]">
+                            <img class="lg:w-[72px] w-[60px] lg:h-[72px]  rounded-xl"
+                                src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+                                alt="Album" />
+                            <div class="absolute -top-[10px] left-[50px] lg:left-[60px]">
+                                <img src="images/greenStatus.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4 w-full">
+                            <div class="flex gap-6 font-mulish">
+                                <h4># <span>Music</span></h4>
+                                <h4>Author : Awlad Hossain</h4>
+                            </div>
+                            <h2 class="font-mulish text-xl font-semibold">10 Kids Unaware of Their Halloween Costume
+                            </h2>
+                            <p class="font-mulish text-base">It’s one thing to subject yourself to ha Halloween costume
+                                mishap because, hey that’s your prerogative</p>
+                            <!-- dashed border -->
+                            <div class="border border-dashed border-[#12132D40]">
+                            </div>
+                            <div class="flex justify-between">
+                                <div class="flex gap-6">
+                                    <p><i class="fa-regular fa-message"></i> <span>560</span></p>
+                                    <p><i class="fa-regular fa-eye"></i> <span>1,568</span></p>
+                                    <p><i class="fa-regular fa-clock"></i> <span>5</span> min</p>
+                                </div>
+                                <div
+                                    class="bg-[rgba(16,185,129,1)] p-2 rounded-full w-8 flex justify-center items-center">
+                                    <i class="fa-solid text-white  fa-envelope-open"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:max-w-[374px]  bg-[rgba(18,19,45,0.05)] rounded-3xl p-8 space-y-5">
+                    <div class="flex justify-between">
+                        <h2>Title</h2>
+                        <span class="flex gap-2"> <img src="images/mark.png" alt="">Mark as read<span>(4)</span></span>
+                    </div>
+                    <div class="flex bg-white p-4 rounded-2xl">
+                        <h3>10 Kids Unaware of Their Halloween Costume</h3>
+                        <p class="flex justify-center items-center gap-2"><i class="fa-regular fa-eye"></i>
+                            <span>1,568</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Join Our Forum section -->
+        <section class="mt-10">
+            <div class="hero min-h-screen bg-[rgba(18,19,45,1)] p-4 lg:p-10 rounded-[36px]">
+                <div class="hero-content flex-col lg:flex-row-reverse">
+                    <img src="images/joinforum.png" class="" />
+                    <div>
+                        <h1 class="text-3xl lg:text-5xl text-white font-bold">Join Our Forum</h1>
+                        <p class="py-6 text-white lg:text-lg text-base">Share your favorite opinion and win and wp forum
+                            coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
+                        <button class="  bg-[#797DFC] text-white py-2 px-7 rounded-[46px] ">Registered Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Latest Posts section -->
+        <section class="mt-10">
+            <div class="max-w-[690px] mx-auto text-center mb-12">
+                <h2 class="text-[#12132D] text-4xl font-mulish font-bold mb-6">Latest Posts</h2>
+                <p class="text-lg font-mulish">Yes, you can run unit tests and view the results directly within the app.
+                    The integrated testing features allow for a streamlined .</p>
+            </div>
+            <div>
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
+                            class="rounded-xl" />
+                    </figure>
+                    <div class="card-body ">
+                        <div>
+                            <p class="text-base text-[rgba(18,19,45,0.6)] flex gap-4 items-center"><i
+                                    class="fa-regular fa-calendar-days"></i> <span>29 January 2024</span></p>
+                        </div>
+                        <h2 class="text-lg font-mulish">What will a mars habitat force that impact in our daily life!!!
+                        </h2>
+                        <p class="text-base text-[rgba(18,19,45,0.6)]">Yes, you can run unit tests and view the results
+                            directly within the app. </p>
+                        <div class="card-actions">
+                            <img class="w-[44px]" src="images/joinforum.png" alt="">
+                            <div>
+                                <h5 class="text-base font-mulish font-bold">Cameron Williamson</h5>
+                                <p>Unknown</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
-
+        
     </footer>
 
     <script src="scripts/retro.js"></script>
