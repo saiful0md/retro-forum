@@ -7,6 +7,12 @@ const loadAllPost = async () => {
     const posts = data.posts;
 
     posts.forEach( (postCard) => {
+        if(postCard.isActive){
+            isActiveIcon = `<img src="/images/greenStatus.png" alt="">`
+        }else{
+            isActiveIcon = `<img src="/images/redStatus.png" alt="">`
+        }
+
         const div = document.createElement('div');
         div.innerHTML =`
         <div class=" flex flex-col lg:flex-row gap-6  bg-[rgba(121,125,252,0.1)] rounded-3xl shadow-xl p-4 lg:p-8">
@@ -14,8 +20,8 @@ const loadAllPost = async () => {
                 <img class="lg:w-[72px] w-[60px] lg:h-[72px]  rounded-xl"
                     src="${postCard.image}"
                     alt="Album" />
-                <div class="absolute -top-[10px] left-[50px] lg:left-[60px]">
-                    <img src="images/greenStatus.png" alt="">
+                <div id="isActiveIcon" class="absolute -top-[10px] left-[50px] lg:left-[60px]">
+                    ${isActiveIcon}
                 </div>
             </div>
             <div class="flex flex-col gap-4 w-full">
@@ -43,7 +49,6 @@ const loadAllPost = async () => {
         </div>
         `;
         letsContainerCards.appendChild(div)
-        console.log();
     });
 }
 
