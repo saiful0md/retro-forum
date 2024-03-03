@@ -1,7 +1,7 @@
 
 const letsContainerCards = document.getElementById('lets-container-cards');
 
-const loadAllPost = async () => {
+const loadLetsDiscuss = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
     const data = await res.json();
     const posts = data.posts;
@@ -42,7 +42,7 @@ const loadAllPost = async () => {
                     </div>
                     <div
                         class="bg-[rgba(16,185,129,1)]  px-2 py-1 rounded-full  flex justify-center items-center">
-                        <a href=""> <i class="fa-solid text-white  fa-envelope-open"></i></a>
+                        <button> <i class="fa-solid text-white  fa-envelope-open"></i></button>
                     </div>
                 </div>
             </div>
@@ -53,4 +53,48 @@ const loadAllPost = async () => {
 }
 
 
-loadAllPost()
+
+const handleSearch = () =>{
+    const searchBox = document.getElementById('search-input');
+    const searchValue = searchBox.value;
+    console.log(searchValue);
+}
+
+
+const latestPostsContainer = document.getElementById("latest-posts-container");
+const loadLatestPosts = async() =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`)
+    const data = await res.json();
+    data.forEach((item) =>{
+        const div = document.createElement('div');
+        div.innerHTML =`
+        <div class="card h-[513px] bg-base-100 shadow-xl">
+            <figure class="px-10 pt-10">
+                <img src="${item.cover_image}" alt=""
+                    class="rounded-xl" />
+            </figure>
+            <div class="card-body ">
+                <div>
+                    <p class="text-base text-[rgba(18,19,45,0.6)] flex gap-4 items-center"><i
+                            class="fa-regular fa-calendar-days"></i> <span>${item.author.posted_date}</span></p>
+                </div>
+                <h2 class="text-lg font-mulish">${item.title}</h2>
+                <p class="text-base text-[rgba(18,19,45,0.6)]">${item.description}</p>
+                <div class="card-actions">
+                    <img class="w-[44px] rounded-full" src="${item.profile_image}" alt="">
+                    <div>
+                        <h5 class="text-base font-mulish font-bold">${item.author.name}</h5>
+                        <p>${item.author.designation}</p>
+                    </div>
+                </div>
+            </div>
+         </div>
+        `;
+        latestPostsContainer.appendChild(div)
+        console.log();
+    })
+}
+
+
+loadLetsDiscuss()
+loadLatestPosts()

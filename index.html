@@ -63,8 +63,7 @@
                             mug!</p>
                         <label class="input input-bordered flex items-center gap-8 rounded-3xl max-w-[400px]">
                             <input type="text" id="search-input" class="grow" placeholder="Search here anything" />
-                            <a href="" id="search-btn"
-                                class=" bg-[#797DFC] text-white py-2 px-7 rounded-[46px] ">Search</a>
+                            <button onclick="handleSearch()" class="bg-[#797DFC] text-white py-2 px-7 rounded-[46px]">Search</button>
                         </label>
                     </div>
                 </div>
@@ -137,30 +136,8 @@
                 <p class="text-lg font-mulish">Yes, you can run unit tests and view the results directly within the app.
                     The integrated testing features allow for a streamlined .</p>
             </div>
-            <div>
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
-                            class="rounded-xl" />
-                    </figure>
-                    <div class="card-body ">
-                        <div>
-                            <p class="text-base text-[rgba(18,19,45,0.6)] flex gap-4 items-center"><i
-                                    class="fa-regular fa-calendar-days"></i> <span>29 January 2024</span></p>
-                        </div>
-                        <h2 class="text-lg font-mulish">What will a mars habitat force that impact in our daily life!!!
-                        </h2>
-                        <p class="text-base text-[rgba(18,19,45,0.6)]">Yes, you can run unit tests and view the results
-                            directly within the app. </p>
-                        <div class="card-actions">
-                            <img class="w-[44px]" src="images/joinforum.png" alt="">
-                            <div>
-                                <h5 class="text-base font-mulish font-bold">Cameron Williamson</h5>
-                                <p>Unknown</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="latest-posts-container" class="flex flex-col justify-between gap-5 lg:flex-row">
+               
             </div>
         </section>
     </main>
