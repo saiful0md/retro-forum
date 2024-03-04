@@ -19,7 +19,7 @@ const loadLetsDiscussAllPost = async () => {
         const div = document.createElement('div');
 
 
-     
+
         div.innerHTML = `
         <div class=" flex flex-col lg:flex-row gap-6  bg-[rgba(121,125,252,0.1)] rounded-3xl shadow-xl p-4 lg:p-8">
             <div class="relative w-[95px] lg:w-[100px]">
@@ -47,7 +47,7 @@ const loadLetsDiscussAllPost = async () => {
                         <p><i class="fa-regular fa-clock"></i> <span>${postCard.posted_time}</span> min</p>
                     </div>
                    <div>
-                   <button onclick='envelopeHandle("${postCard.title.replace(/'/, "/")}","${postCard.view_count}")' class="addBtn bg-[rgba(16,185,129,1)]  px-2 py-1 rounded-full  flex justify-center items-center"> <i class="fa-solid text-white  fa-envelope-open"></i></button>
+                   <button onclick='addPost("${postCard.title.replace(/'/, "/")}","${postCard.view_count}")' class="addBtn bg-[rgba(16,185,129,1)]  px-2 py-1 rounded-full  flex justify-center items-center"> <i class="fa-solid text-white  fa-envelope-open"></i></button>
                    </div>
                 </div>
             </div>
@@ -58,32 +58,43 @@ const loadLetsDiscussAllPost = async () => {
 }
 
 
+
+// spinner 
+const toggleLoderSpinner = (isLoading) => {
+    const loadingSpinner = document.getElementById('spinner-container');
+
+    if (isLoading) {
+        loadingSpinner.classList.remove('hidden');
+    } else {
+        loadingSpinner.classList.add('hidden')
+    }
+}
+
 // title mark 
 
-// const markCurrentScore = document.getElementsByClassName("mark-counter");
-// const markCurrentText = markCurrentScore.innerText;
-// const currentScore = parseInt(markCurrentText);
-// const newScore = currentScore + 1;
-// console.log(newScore);
-
-
+let sum = 0;
 const markContainer = document.getElementById('mark-container');
-const envelopeHandle = (postTitle,postView) =>{
+const addPost = (postTitle, postView) => {
+    
+    sum += 1;
+     document.getElementById('markCounter').innerHTML= `(${sum})`
 
     const div = document.createElement('div');
     div.innerHTML = ` <div class="flex bg-white p-4 rounded-2xl">
     <h3>${postTitle}</h3>
     <p class="flex justify-center items-center gap-2"><i class="fa-regular fa-eye"></i>
-        <span>${postView}</span></p>
+    <span>${postView}</span></p>
     </div>`;
     markContainer.appendChild(div)
 }
+
+
 
 const loadLetsDiscussSearch = async (searchValue) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`);
     const data = await res.json();
     const posts = data.posts;
-    
+
     letsContainerCards.textContent = ''
     posts.forEach((postCard) => {
         if (postCard.isActive) {
@@ -120,7 +131,7 @@ const loadLetsDiscussSearch = async (searchValue) => {
                         <p><i class="fa-regular fa-clock"></i> <span>${postCard.posted_time}</span> min</p>
                     </div>
                     <div>
-                    <button onclick='envelopeHandle("${postCard.title.replace(/'/, "/")}","${postCard.view_count}")' class="addBtn bg-[rgba(16,185,129,1)]  px-2 py-1 rounded-full  flex justify-center items-center"> <i class="fa-solid text-white  fa-envelope-open"></i></button>
+                    <button onclick='addPost("${postCard.title.replace(/'/, "/")}","${postCard.view_count}")' class="addBtn bg-[rgba(16,185,129,1)]  px-2 py-1 rounded-full  flex justify-center items-center"> <i class="fa-solid text-white  fa-envelope-open"></i></button>
                     </div>
                 </div>
             </div>
@@ -128,11 +139,16 @@ const loadLetsDiscussSearch = async (searchValue) => {
         `;
         letsContainerCards.appendChild(div)
     });
+    setTimeout(() => {
+
+        toggleLoderSpinner(false)
+    }, 2000)
 }
 
 // Search handle
 
 const handleSearch = () => {
+    toggleLoderSpinner(true)
     const searchBox = document.getElementById('search-input');
     const searchValue = searchBox.value;
     loadLetsDiscussSearch(searchValue)
@@ -155,7 +171,7 @@ const loadLatestPosts = async () => {
             <div class="card-body ">
                 <div>
                     <p class="text-base text-[rgba(18,19,45,0.6)] flex gap-4 items-center"><i
-                            class="fa-regular fa-calendar-days"></i> <span>${item.author.posted_date}</span></p>
+                            class="fa-regular fa-calendar-days"></i> <span>${item.author.posted_date ? item.author.posted_date : "No publish date"}</span></p>
                 </div>
                 <h2 class="text-lg font-mulish">${item.title}</h2>
                 <p class="text-base text-[rgba(18,19,45,0.6)]">${item.description}</p>
@@ -163,7 +179,7 @@ const loadLatestPosts = async () => {
                     <img class="w-[44px] rounded-full" src="${item.profile_image}" alt="">
                     <div>
                         <h5 class="text-base font-mulish font-bold">${item.author.name}</h5>
-                        <p>${item.author.designation }</p>
+                        <p>${item.author.designation ? item.author.designation : "Unknown"}</p>
                     </div>
                 </div>
             </div>
@@ -176,5 +192,5 @@ const loadLatestPosts = async () => {
 
 
 loadLatestPosts()
-loadLetsDiscussAllPost()
 loadLetsDiscussSearch()
+loadLetsDiscussAllPost()

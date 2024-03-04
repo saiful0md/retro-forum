@@ -88,6 +88,7 @@
             </div>
         </div>
     </header>
+    
     <main class="container max-w-6xl mx-auto mt-10 p-4">
         <!-- Let’s Discuss section -->
         <section>
@@ -95,6 +96,10 @@
                 <h2 class="text-[#12132D] text-4xl font-mulish font-bold mb-6">Let’s Discuss</h2>
                 <p class="text-lg font-mulish">Yes, you can run unit tests and view the results directly within the app.
                     The integrated testing features allow for a streamlined .</p>
+            </div>
+            <!-- spinner -->
+            <div id="spinner-container" class="container max-w-16 hidden mx-auto mt-10 p-4">
+                <span class="loading loading-bars loading-lg"></span>
             </div>
             <!-- card  -->
             <div class="flex flex-col lg:flex-row gap-10">
@@ -105,7 +110,7 @@
                 <div id="mark-container" class="lg:w-[374px]  bg-[rgba(18,19,45,0.05)] rounded-3xl p-8 space-y-5">
                     <div class="flex justify-between">
                         <h2>Title</h2>
-                        <span class="flex gap-2"> <img src="images/mark.png" alt="">Mark as read<span id="mark-counter">(0)</span></span>
+                        <span class="flex gap-2"> <img src="images/mark.png" alt="">Mark as read<span id="markCounter">(0)</span></span>
                     </div>
                    
                 </div>
