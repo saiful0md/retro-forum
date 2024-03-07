@@ -192,5 +192,4 @@ const loadLatestPosts = async () => {
 
 
 loadLatestPosts()
-loadLetsDiscussSearch()
 loadLetsDiscussAllPost()
